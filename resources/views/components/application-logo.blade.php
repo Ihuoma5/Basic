@@ -1,0 +1,1 @@
+<img src="{{asset('logo/dipasLogo.png')}}" width="100px">
