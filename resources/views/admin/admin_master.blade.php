@@ -136,6 +136,14 @@
  <script src="{{ asset('backend/assets/js/code.js') }}"></script>
  <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
  <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js" ></script>
+  <!-- Required datatable js -->
+        <script src="{{ asset('backend/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('backend/assets/js/handlebars.js') }}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" ></script>
+
+
+        
     </body>
 
 </html>
