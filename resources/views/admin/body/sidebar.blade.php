@@ -1,4 +1,3 @@
-
 <div class="vertical-menu">
 
 <div data-simplebar class="h-100">
@@ -17,9 +16,10 @@
                 </a>
             </li>
      <li>
+            <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                     <i class="ri-mail-send-line"></i>
-                    <span>Manage Supplier</span>
+                    <span>Manage Supplier/Trueprep</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
                     <li><a href="{{route('supplier.all')}}">All Supplier</a></li>
@@ -58,7 +58,16 @@
 
         </ul>
                 </li>
-            
+                <li>
+            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ri-mail-send-line"></i>
+                <span>Manage State</span>
+            </a>
+            <ul class="sub-menu" aria-expanded="false">
+                <li><a href="{{ route('state.all') }}">All State</a></li>
+
+        </ul>
+                </li>
           <li>
             <a href="javascript: void(0);" class="has-arrow waves-effect">
                 <i class="ri-mail-send-line"></i>
@@ -72,14 +81,37 @@
         <li>
             <a href="javascript: void(0);" class="has-arrow waves-effect">
                 <i class="ri-mail-send-line"></i>
+                <span>Manage Devices</span>
+            </a>
+            <ul class="sub-menu" aria-expanded="false">
+                <li><a href="{{ route('device.all') }}">All Device</a></li>
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ri-mail-send-line"></i>
                 <span>Manage Purchase</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
                 <li><a href="{{ route('purchase.all') }}">All Purchase</a></li>
+                <li><a href="{{ route('purchase.pending') }}">Approval Purchase</a></li>
 
             </ul>
         </li>
-            <li class="menu-title">Pages</li>
+
+        <li>
+            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                <i class="ri-mail-send-line"></i>
+                <span>Manage Invoice</span>
+            </a>
+            <ul class="sub-menu" aria-expanded="false">
+                <li><a href="{{ route('invoice.all') }}">All Invoice</a></li>
+                <li><a href=" ">Approval Invoice</a></li>
+
+            </ul>
+        </li>
+            <li class="menu-title">Maintainence</li>
         <ul>
             <!-- <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">

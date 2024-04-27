@@ -29,7 +29,7 @@ class SupplierController extends Controller
 
         Supplier::insert([
             'name' => $request->name,
-            'Phone_no' => $request->Phone_no,
+            'mobile_no' => $request->mobile_no,
             'email' => $request->email,
             'address' => $request->address,
             'created_by' => Auth::user()->id,

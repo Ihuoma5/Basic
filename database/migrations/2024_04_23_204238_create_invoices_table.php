@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('suppliers', function (Blueprint $table) {
+        Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('Phone_no')->nullable();
-            $table->string('email')->nullable();
-            $table->string('address')->nullable();
-            $table->tinyInteger('status')->default('1');
+            $table->string('invoice_no')->nullable();
+            $table->date('date')->nullable();
+            $table->text('description')->nullable(); 
+            $table->tinyInteger('status')->default('0')->comment('0=Pending, 1=Approved');
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('suppliers');
+        Schema::dropIfExists('invoices');
     }
 };

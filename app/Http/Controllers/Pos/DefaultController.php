@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Purchase;
 use App\Models\Supplier;
 use App\Models\Product;
+use App\Models\Device;
+use App\Models\State;
 use App\Models\Unit;
 use App\Models\Category;
 use Auth;
@@ -29,5 +31,11 @@ class DefaultController extends Controller
         return response()->json($allProduct);
     } // End Mehtod 
 
+    public function GetStock(Request $request){
+        $product_id = $request->product_id;
+        $stock = Product::where('id',$product_id)->first()->quantity;
+        return response()->json($stock);
+
+    } // End Mehtod 
 
 }

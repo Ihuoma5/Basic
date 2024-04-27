@@ -7,9 +7,13 @@ use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\UnitController;
 use App\Http\Controllers\Pos\CategoryController;
+use App\Http\Controllers\Molbio\StateController;
 use App\Http\Controllers\Pos\ProductController;
+use App\Http\Controllers\Molbio\DeviceController;
+use App\Http\Controllers\Molbio\SparedetailsController;
 use App\Http\Controllers\Pos\PurchaseController;
 use App\Http\Controllers\Pos\DefaultController;
+use App\Http\Controllers\Pos\InvoiceController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -90,6 +94,17 @@ Route::controller(CategoryController::class)->group(function () {
 
 });
 
+// States All Route 
+Route::controller(StateController::class)->group(function () {
+    Route::get('/state/all', 'StateAll')->name('state.all'); 
+    Route::get('/state/add', 'StateAdd')->name('state.add');
+    Route::post('/state/store', 'StateStore')->name('state.store');
+    Route::get('/state/edit/{id}', 'StateEdit')->name('state.edit');
+    Route::post('/state/update', 'StateUpdate')->name('state.update');
+    Route::get('/state/delete/{id}', 'StateDelete')->name('state.delete');
+
+});
+
 // Product All Route 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/product/all', 'ProductAll')->name('product.all'); 
@@ -101,16 +116,41 @@ Route::controller(ProductController::class)->group(function () {
 
 });
 
+// Device All Route 
+Route::controller(DeviceController::class)->group(function () {
+    Route::get('/device/all', 'DeviceAll')->name('device.all'); 
+    Route::get('/device/add', 'DeviceAdd')->name('device.add');
+    Route::post('/device/store', 'DeviceStore')->name('device.store');
+    Route::get('/device/edit/{id}', 'DeviceEdit')->name('device.edit');
+    Route::post('/device/update', 'DeviceUpdate')->name('device.update');
+    Route::get('/device/delete/{id}', 'DeviceDelete')->name('device.delete');
+
+});
+
+
+
 // Purchase All Route 
 Route::controller(PurchaseController::class)->group(function () {
     Route::get('/purchase/all', 'PurchaseAll')->name('purchase.all'); 
     Route::get('/purchase/add', 'PurchaseAdd')->name('purchase.add');
+    Route::post('/purchase/store', 'PurchaseStore')->name('purchase.store');
+    Route::get('/purchase/delete/{id}', 'PurchaseDelete')->name('purchase.delete');
+    Route::get('/purchase/pending', 'PurchasePending')->name('purchase.pending');
+    Route::get('/purchase/approve/{id}', 'PurchaseApprove')->name('purchase.approve');
 });
-
+// Default All Route 
 Route::controller(DefaultController::class)->group(function () {
     Route::get('/get-category', 'GetCategory')->name('get-category'); 
     Route::get('/get-product', 'GetProduct')->name('get-product');
+    
+});
 
+// Invoice All Route 
+Route::controller(InvoiceController::class)->group(function () {
+    Route::get('/invoice/all', 'InvoiceAll')->name('invoice.all'); 
+    Route::get('/invoice/add', 'invoiceAdd')->name('invoice.add');
+    Route::get('/check-product', 'GetStock')->name('check-product-stock'); 
+    Route::post('/invoice/store', 'InvoiceStore')->name('invoice.store');
 
 });
 require __DIR__.'/auth.php';
