@@ -12,6 +12,7 @@ use App\Http\Controllers\Pos\ProductController;
 use App\Http\Controllers\Molbio\DeviceController;
 use App\Http\Controllers\Molbio\SparedetailsController;
 use App\Http\Controllers\Pos\PurchaseController;
+use App\Http\Controllers\Molbio\ReportController;
 use App\Http\Controllers\Pos\DefaultController;
 use App\Http\Controllers\Pos\InvoiceController;
 use Illuminate\Support\Facades\Route;
@@ -138,10 +139,20 @@ Route::controller(PurchaseController::class)->group(function () {
     Route::get('/purchase/pending', 'PurchasePending')->name('purchase.pending');
     Route::get('/purchase/approve/{id}', 'PurchaseApprove')->name('purchase.approve');
 });
+// Purchase All Route 
+Route::controller(ReportController::class)->group(function () {
+    Route::get('/report/all', 'ReportAll')->name('report.all'); 
+    Route::get('/report/add', 'ReportAdd')->name('report.add');
+    Route::post('/report/store', 'ReportStore')->name('report.store');
+    Route::get('/report/delete/{id}', 'ReportDelete')->name('report.delete');
+    Route::get('/report/pending', 'ReportPending')->name('report.pending');
+    Route::get('/report/approve/{id}', 'ReportApprove')->name('report.approve');
+});
 // Default All Route 
 Route::controller(DefaultController::class)->group(function () {
     Route::get('/get-category', 'GetCategory')->name('get-category'); 
     Route::get('/get-product', 'GetProduct')->name('get-product');
+    Route::get('/get-device', 'GetDevice')->name('get-device');
     
 });
 
